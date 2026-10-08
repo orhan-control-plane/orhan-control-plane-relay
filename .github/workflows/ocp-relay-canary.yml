@@ -1,0 +1,22 @@
+name: ocp-relay-canary
+
+# PHASE-2.10.12 transport placeholder - INERT / FAIL-CLOSED.
+# Purpose: establish the exact workflow identity referenced by the
+# ocp-relay-runners runner-group access policy. This file must NOT
+# execute any local command in this phase.
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  canary:
+    # Unconditionally skipped: GitHub never schedules this job, even if a
+    # matching self-hosted runner is later registered.
+    if: ${{ false }}
+    runs-on: [self-hosted, windows, x64, ocp-runner-relay]
+    steps:
+      - name: inert placeholder (no execution in this phase)
+        run: |
+          echo "OCP relay canary placeholder (inert; not executed)"
